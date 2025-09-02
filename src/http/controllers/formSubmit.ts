@@ -15,7 +15,7 @@ export async function formSubmitController(
   request: FastifyRequest<{ Body: FormSubmitBody }>,
   reply: FastifyReply
 ) {
- const credentials = JSON.parse(fs.readFileSync('src/credentials.json', 'utf8'))
+  const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS || '{}')
 
   // Configura autenticação
   const auth = new google.auth.GoogleAuth({
