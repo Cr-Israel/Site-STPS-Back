@@ -1,0 +1,10 @@
+POST http://localhost:3333/form-submit
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@doe.com",
+    "phone": "21987654321",
+    "church": "Cascadura",
+    "function": "Pastor"
+}
