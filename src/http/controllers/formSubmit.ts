@@ -15,19 +15,22 @@ export async function formSubmitController(
   request: FastifyRequest<{ Body: FormSubmitBody }>,
   reply: FastifyReply
 ) {
-  const credentialsBase64 = process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS!;
+  const credentialsBase64 = process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS_COMUNICACAO!;
 
   const credentials = JSON.parse(
     Buffer.from(credentialsBase64, 'base64').toString('utf-8')
   );
 
+  // const credentials = JSON.parse(fs.readFileSync('src/credentials.json', 'utf8'))
+  
   // Configura autenticação
   const auth = new google.auth.GoogleAuth({
     credentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
-  const spreadsheetId = '1Tx2wncxGkILEkQYvz3NGowVGJ59AFJ4SBxE6zODKwm4';
+  // const spreadsheetId = '1Tx2wncxGkILEkQYvz3NGowVGJ59AFJ4SBxE6zODKwm4';
+  const spreadsheetId = '130ZHzXK10JnpTLXHfd4VkDOSwTzIxDqOthxWsCiw0cg';
 
   // Nome da aba onde os dados serão inseridos
   const SHEET_NAME = 'Página1';
